@@ -1,0 +1,9 @@
+.item {
+  color: limegreen;
+  padding: 20px 0;
+}
+
+.item img {
+  width: 150px;
+  display: inline;
+}
