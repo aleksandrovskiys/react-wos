@@ -1,0 +1,21 @@
+
+.navigation {
+  grid-area: n;
+  background-color: lightskyblue;
+}
+
+.item {
+  display: block;
+  color: white;
+
+  font-size: 20px;
+  text-align: center;
+}
+
+.item a {
+  text-decoration: none;
+}
+
+.active {
+  color: gold;
+}
