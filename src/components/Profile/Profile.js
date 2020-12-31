@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={css.profile}>
+        <div>
             <img id="profile-header-image"
                  src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Dreinschlag-drei-gleichen-2011.jpg"
                  alt="content logo"/>
