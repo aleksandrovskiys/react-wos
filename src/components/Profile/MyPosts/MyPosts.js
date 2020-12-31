@@ -12,10 +12,8 @@ const MyPosts = () => {
                 <button>Delete</button>
             </div>
             <div className={css.posts}>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post body={'This is first post'} likes={'21'}/>
+                <Post body={'It\'s a second post'} likes={'5'}/>
             </div>
         </div>
     )
