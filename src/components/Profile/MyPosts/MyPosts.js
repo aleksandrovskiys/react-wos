@@ -5,11 +5,14 @@ import Post from "./Post/Post";
 const MyPosts = () => {
     return (
         <div>
-            My posts
+            <h3>My posts</h3>
             <div>
-                <textarea placeholder={'Put your text here'}></textarea>
-                <button>Send</button>
-                <button>Delete</button>
+                <div>
+                    <textarea placeholder={'Put your text here'}></textarea>
+                </div>
+                <div>
+                    <button>Send</button>
+                </div>
             </div>
             <div className={css.posts}>
                 <Post body={'This is first post'} likes={'21'}/>

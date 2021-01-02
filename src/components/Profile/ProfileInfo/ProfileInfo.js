@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProfileInfo.module.css"
 
 export function ProfileInfo() {
     return (
@@ -6,8 +7,8 @@ export function ProfileInfo() {
             <img id="profile-header-image"
                  src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Dreinschlag-drei-gleichen-2011.jpg"
                  alt="content logo"/>
-            <div>
-                Avatar + descr
+            <div className="descriptionBlock">
+                Description
             </div>
         </div>);
 }
