@@ -9,8 +9,8 @@ const Post = (props) => {
                  alt="Image"/>
             <span>{props.body}</span>
             <div>
-                <span>{`${props.likes} likes`}</span>
                 <button>Like</button>
+                <span>{`${props.likes} likes`}</span>
             </div>
         </div>
     )
