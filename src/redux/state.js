@@ -1,4 +1,7 @@
-let dialogsData = [{id: 1, name: 'Andrew'},
+import {renderEntireTree} from "../render";
+
+let dialogsData = [
+    {id: 1, name: 'Andrew'},
     {id: 2, name: 'Julia'},
     {id: 3, name: 'Alexander'},
     {id: 4, name: 'Valera'}];
@@ -20,10 +23,29 @@ let postsData = [
     {id: 3, body: "helee", likes: 1},
     {id: 4, body: "oh my", likes: 2},];
 
+export let postTextOnChange = (text) => {
+    state.newPostTextAreaValue = text;
+    renderEntireTree(state);
+}
+
+export let addPost = () => {
+    let newPost = {
+        id: 5,
+        body: state.newPostTextAreaValue,
+        likes: 0
+    }
+    postsData.push(newPost);
+    state.newPostTextAreaValue = '';
+    renderEntireTree(state);
+}
+
 export let state = {
     dialogsData: dialogsData,
     messagesData: messagesData,
-    postsData: postsData
-}
+    postsData: postsData,
+    newPostTextAreaValue: ''
+};
+
+window.state = state;
 
 export default state;
