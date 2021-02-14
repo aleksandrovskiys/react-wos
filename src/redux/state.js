@@ -1,5 +1,3 @@
-import {renderEntireTree} from "../render";
-
 let dialogsData = [
     {id: 1, name: 'Andrew'},
     {id: 2, name: 'Julia'},
@@ -23,12 +21,12 @@ let postsData = [
     {id: 3, body: "helee", likes: 1},
     {id: 4, body: "oh my", likes: 2},];
 
-export let postTextOnChange = (text) => {
+export const postTextOnChange = (text) => {
     state.newPostTextAreaValue = text;
     renderEntireTree(state);
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         body: state.newPostTextAreaValue,
@@ -39,12 +37,36 @@ export let addPost = () => {
     renderEntireTree(state);
 }
 
-export let state = {
+export const messageTextOnChange = (text) => {
+    state.newMessageText = text;
+    renderEntireTree(state);
+}
+
+export const addMessage = () => {
+    let newMessage = {
+        id: 15,
+        text: state.newMessageText
+    }
+    messagesData.push(newMessage);
+    state.newMessageText = '';
+    renderEntireTree(state);
+}
+
+export const state = {
     dialogsData: dialogsData,
     messagesData: messagesData,
     postsData: postsData,
-    newPostTextAreaValue: ''
+    newPostTextAreaValue: '',
+    newMessageText: ''
 };
+
+export let renderEntireTree = () => {
+    console.log('Rerender')
+}
+
+export const subscribe = (observer) => {
+    renderEntireTree = observer;
+}
 
 window.state = state;
 

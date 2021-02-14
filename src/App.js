@@ -8,6 +8,8 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 import {Route, BrowserRouter} from "react-router-dom";
+import {addMessage, messageTextOnChange} from "./redux/state";
+import React from "react";
 
 function App(props) {
     return (
@@ -21,7 +23,13 @@ function App(props) {
                                                           newPostTextAreaValue={props.state.newPostTextAreaValue}
                                                           addPosts={props.addPost}/>}} path="/profile"/>
                     <Route render={() => {
-                        return <Dialogs messagesData={props.state.messagesData} dialogsData={props.state.dialogsData}/>
+                        return <Dialogs
+                            messagesData={props.state.messagesData}
+                            dialogsData={props.state.dialogsData}
+                            addMessage={addMessage}
+                            messageTextOnChange={messageTextOnChange}
+                            newMessageText={props.state.newMessageText}
+                        />
                     }} path="/dialogs"/>
                     <Route component={News} path="/news"/>
                     <Route component={Music} path="/music"/>
