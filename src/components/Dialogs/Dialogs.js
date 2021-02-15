@@ -2,7 +2,6 @@ import React from "react";
 import css from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {addMessage} from "../../redux/state";
 
 const Dialogs = (props) => {
 
@@ -15,7 +14,7 @@ const Dialogs = (props) => {
     let messageArea = React.createRef();
 
     function sendMessage() {
-        addMessage()
+        props.addMessage()
     }
 
     function messageTextOnChange() {
@@ -41,7 +40,6 @@ const Dialogs = (props) => {
                     <button onClick={sendMessage}>Send</button>
                 </div>
             </div>
-
         </div>
     )
 }

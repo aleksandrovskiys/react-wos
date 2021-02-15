@@ -8,7 +8,6 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 import {Route, BrowserRouter} from "react-router-dom";
-import {addMessage, messageTextOnChange} from "./redux/state";
 import React from "react";
 
 function App(props) {
@@ -26,8 +25,8 @@ function App(props) {
                         return <Dialogs
                             messagesData={props.state.messagesData}
                             dialogsData={props.state.dialogsData}
-                            addMessage={addMessage}
-                            messageTextOnChange={messageTextOnChange}
+                            addMessage={props.addMessage}
+                            messageTextOnChange={props.messageTextOnChange}
                             newMessageText={props.state.newMessageText}
                         />
                     }} path="/dialogs"/>
