@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 let store = {
     _state: {
         dialogsData: [
@@ -35,7 +40,7 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 body: this._state.newPostTextAreaValue,
@@ -44,10 +49,10 @@ let store = {
             this._state.postsData.push(newPost);
             this._state.newPostTextAreaValue = '';
             this._callSubscriber(this._state);
-        } else if  (action.type === 'UPDATE-NEW-POST-TEXT'){
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.newPostTextAreaValue = action.text;
             this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-MESSAGE'){
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 15,
                 text: this._state.newMessageText
@@ -55,11 +60,21 @@ let store = {
             this._state.messagesData.push(newMessage);
             this._state.newMessageText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.newMessageText = action.text;
             this._callSubscriber(this._state);
         }
+
     }
 }
+
+export let addPostActionCreator = () => ({
+    type: ADD_POST
+});
+
+export let updateNewPostTextActionCreator = text => ({
+    type: UPDATE_NEW_POST_TEXT,
+    text: text
+});
 
 export default store;
