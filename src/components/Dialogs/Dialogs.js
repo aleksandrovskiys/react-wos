@@ -14,11 +14,14 @@ const Dialogs = (props) => {
     let messageArea = React.createRef();
 
     function sendMessage() {
-        props.addMessage()
+        props.dispatch({type: "ADD-MESSAGE"})
     }
 
     function messageTextOnChange() {
-        props.messageTextOnChange(messageArea.current.value);
+        props.dispatch({
+            type: "UPDATE-NEW-MESSAGE-TEXT",
+            text: messageArea.current.value
+        });
     }
 
     return (

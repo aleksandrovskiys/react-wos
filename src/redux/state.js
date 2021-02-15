@@ -23,44 +23,43 @@ let store = {
         newPostTextAreaValue: '',
         newMessageText: ''
     },
+    _callSubscriber() {
+        console.log('State changed')
+    },
 
     getState() {
         return this._state;
-    },
-    _callSubscriber() {
-        console.log('State changed')
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
 
-    addPost() {
-        let newPost = {
-            id: 5,
-            body: this._state.newPostTextAreaValue,
-            likes: 0
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                body: this._state.newPostTextAreaValue,
+                likes: 0
+            }
+            this._state.postsData.push(newPost);
+            this._state.newPostTextAreaValue = '';
+            this._callSubscriber(this._state);
+        } else if  (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.newPostTextAreaValue = action.text;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-MESSAGE'){
+            let newMessage = {
+                id: 15,
+                text: this._state.newMessageText
+            }
+            this._state.messagesData.push(newMessage);
+            this._state.newMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._state.newMessageText = action.text;
+            this._callSubscriber(this._state);
         }
-        this._state.postsData.push(newPost);
-        this._state.newPostTextAreaValue = '';
-        this._callSubscriber(this._state);
-    },
-    addMessage() {
-        let newMessage = {
-            id: 15,
-            text: this._state.newMessageText
-        }
-        this._state.messagesData.push(newMessage);
-        this._state.newMessageText = '';
-        this._callSubscriber(this._state);
-    },
-    postTextOnChange(text) {
-        this._state.newPostTextAreaValue = text;
-        this._callSubscriber(this._state);
-    },
-    messageTextOnChange(text) {
-        this._state.newMessageText = text;
-        this._callSubscriber(this._state);
-    },
+    }
 }
 
 export default store;

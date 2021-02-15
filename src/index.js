@@ -11,10 +11,7 @@ export let renderEntireTree = (state) => {
         <React.StrictMode>
             <App
                  state={store.getState()}
-                 addPost={store.addPost.bind(store)}
-                 postTextOnChange={store.postTextOnChange.bind(store)}
-                 addMessage={store.addMessage.bind(store)}
-                 messageTextOnChange={store.messageTextOnChange.bind(store)}
+                 dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')

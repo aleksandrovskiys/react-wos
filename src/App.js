@@ -18,15 +18,13 @@ function App(props) {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route render={() => {return <Profile postsData={props.state.postsData}
-                                                          postTextOnChange={props.postTextOnChange}
                                                           newPostTextAreaValue={props.state.newPostTextAreaValue}
-                                                          addPosts={props.addPost}/>}} path="/profile"/>
+                                                          dispatch={props.dispatch}/>}} path="/profile"/>
                     <Route render={() => {
                         return <Dialogs
                             messagesData={props.state.messagesData}
                             dialogsData={props.state.dialogsData}
-                            addMessage={props.addMessage}
-                            messageTextOnChange={props.messageTextOnChange}
+                            dispatch={props.dispatch}
                             newMessageText={props.state.newMessageText}
                         />
                     }} path="/dialogs"/>
