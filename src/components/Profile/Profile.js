@@ -6,8 +6,8 @@ const Profile = (props) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts postsData={props.postsData}
-                     newPostTextAreaValue={props.newPostTextAreaValue}
+            <MyPosts postsData={props.profilePage.postsData}
+                     newPostTextAreaValue={props.profilePage.newPostTextAreaValue}
                      dispatch={props.dispatch}/>
         </div>
     )

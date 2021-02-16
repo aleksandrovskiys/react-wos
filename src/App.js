@@ -17,15 +17,12 @@ function App(props) {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route render={() => {return <Profile postsData={props.state.postsData}
-                                                          newPostTextAreaValue={props.state.newPostTextAreaValue}
+                    <Route render={() => {return <Profile profilePage={props.state.profilePage}
                                                           dispatch={props.dispatch}/>}} path="/profile"/>
                     <Route render={() => {
                         return <Dialogs
-                            messagesData={props.state.messagesData}
-                            dialogsData={props.state.dialogsData}
+                            dialogsPage={props.state.dialogsPage}
                             dispatch={props.dispatch}
-                            newMessageText={props.state.newMessageText}
                         />
                     }} path="/dialogs"/>
                     <Route component={News} path="/news"/>

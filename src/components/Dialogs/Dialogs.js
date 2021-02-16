@@ -6,10 +6,10 @@ import {sendMessageCreator, updateNewMessageTextCreator} from "../../redux/state
 
 const Dialogs = (props) => {
 
-    let dialogComponents = props.dialogsData
+    let dialogComponents = props.dialogsPage.dialogsData
         .map(dialog => <DialogItem id={dialog.id} name={dialog.name}/>);
 
-    let messageComponents = props.messagesData
+    let messageComponents = props.dialogsPage.messagesData
         .map(message => <Message text={message.text}/>);
 
     let messageArea = React.createRef();
@@ -18,9 +18,9 @@ const Dialogs = (props) => {
         props.dispatch(sendMessageCreator())
     }
 
-    function messageTextOnChange(e) {
-        props.dispatch(updateNewMessageTextCreator(
-                e.target.value));
+    function messageTextOnChange(event) {
+        let text = event.target.value;
+        props.dispatch(updateNewMessageTextCreator(text));
     }
 
     return (
@@ -35,7 +35,7 @@ const Dialogs = (props) => {
                         placeholder='Enter your message here'
                         ref={messageArea}
                         onChange={messageTextOnChange}
-                        value={props.newMessageText}
+                        value={props.dialogsPage.newMessageText}
                     />
                 </div>
                 <div>
