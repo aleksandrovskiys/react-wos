@@ -18,3 +18,11 @@ export const dialogsReducer = (state, action) => {
 
     return state;
 };
+
+export let sendMessageCreator = () => ({
+    type: SEND_MESSAGE
+});
+export let updateNewMessageTextCreator = text => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    text: text
+});

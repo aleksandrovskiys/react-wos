@@ -2,11 +2,6 @@ import {profileReducer} from "./profileReducer";
 import {dialogsReducer} from "./dialogsReducer";
 import {navbarReducer} from "./navbarReducer";
 
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-
 let store = {
     _state: {
         dialogsPage: {
@@ -55,23 +50,5 @@ let store = {
         this._callSubscriber(this._state)
     }
 }
-
-export let addPostActionCreator = () => ({
-    type: ADD_POST
-});
-
-export let updateNewPostTextActionCreator = text => ({
-    type: UPDATE_NEW_POST_TEXT,
-    text: text
-});
-
-export let sendMessageCreator = () => ({
-    type: SEND_MESSAGE
-});
-
-export let updateNewMessageTextCreator = text => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    text: text
-});
 
 export default store;
