@@ -1,6 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
+const SEND_MESSAGE = "SEND-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let store = {
@@ -52,7 +52,7 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.newPostTextAreaValue = action.text;
             this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
+        } else if (action.type === SEND_MESSAGE) {
             let newMessage = {
                 id: 15,
                 text: this._state.newMessageText
@@ -76,5 +76,15 @@ export let updateNewPostTextActionCreator = text => ({
     type: UPDATE_NEW_POST_TEXT,
     text: text
 });
+
+export let sendMessageCreator = () => ({
+    type: SEND_MESSAGE
+});
+
+export let updateNewMessageTextCreator = text => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    text: text
+});
+
 
 export default store;
