@@ -1,3 +1,7 @@
+import {profileReducer} from "./profileReducer";
+import {dialogsReducer} from "./dialogsReducer";
+import {navbarReducer} from "./navbarReducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SEND_MESSAGE = "SEND-MESSAGE";
@@ -30,7 +34,8 @@ let store = {
                 {id: 3, body: "helee", likes: 1},
                 {id: 4, body: "oh my", likes: 2},],
             newPostTextAreaValue: '',
-        }
+        },
+        navbarPage: {}
     },
     _callSubscriber() {
         console.log('State changed')
@@ -44,31 +49,10 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                body: this._state.profilePage.newPostTextAreaValue,
-                likes: 0
-            }
-            this._state.profilePage.postsData.push(newPost);
-            this._state.profilePage.newPostTextAreaValue = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostTextAreaValue = action.text;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let newMessage = {
-                id: 15,
-                text: this._state.dialogsPage.newMessageText
-            }
-            this._state.dialogsPage.messagesData.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.text;
-            this._callSubscriber(this._state);
-        }
-
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.navbarPage = navbarReducer(this._state.navbarPage, action);
+        this._callSubscriber(this._state)
     }
 }
 
