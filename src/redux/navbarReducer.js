@@ -1,4 +1,4 @@
-export const navbarReducer = (state, action) => {
+export const navbarReducer = (state = {}, action) => {
 
     return state;
 };
