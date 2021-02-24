@@ -15,12 +15,12 @@ const Dialogs = (props) => {
     let messageArea = React.createRef();
 
     function sendMessage() {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
 
     function messageTextOnChange(event) {
         let text = event.target.value;
-        props.dispatch(updateNewMessageTextCreator(text));
+        props.updateNewMessageText(text);
     }
 
     return (

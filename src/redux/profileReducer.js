@@ -5,7 +5,6 @@ let initialState = {
             postsData: [
                 {id: 0, body: "This is first post", likes: 21},
                 {id: 1, body: "Another post", likes: 32},
-                {id: 2, body: "God, don't forget it", likes: 64},
                 {id: 3, body: "helee", likes: 1},
                 {id: 4, body: "oh my", likes: 2},],
             newPostTextAreaValue: '',
